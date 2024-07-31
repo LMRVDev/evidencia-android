@@ -1,6 +1,8 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.style.AbsoluteSizeSpan
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -9,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,6 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
 /*
@@ -67,18 +72,25 @@ class MainActivity : ComponentActivity() {
                         Column(
                             modifier = Modifier.align(Alignment.Center)
                         ) {
-                            Text(text = "SENA")
-                            Text(text = "Análisis y Desarrollo de Software (2758333)")
-                            Text(text = "Evidencia: GA8-220501096-AA2-EV01")
-                            Text(text = "Estudiante: LUIS MIGUEL RODRÍGUEZ VARGAS")
-                            Text(text = "Instructor: FERNANDO FORERO GOMEZ")
+                            text("SENA", 48)
+                            text("Análisis y Desarrollo de Software (2758333)", 36)
+                            text("Evidencia: GA8-220501096-AA2-EV01", 36)
+                            text("Estudiante: LUIS MIGUEL RODRÍGUEZ VARGAS", 36)
+                            text("Instructor: FERNANDO FORERO GOMEZ", 36)
                         }
                     }
                 }
             }
         }
     }
+
 }
+
+@Composable
+private fun text(text: String, textSize: Int) = Text(
+    text = text,
+    fontSize = textSize.sp
+)
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
